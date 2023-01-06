@@ -1,0 +1,45 @@
+{{define "Test"}}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--  <link rel="stylesheet" href="/style/style.css">--> 
+   <title>Document</title>
+</head>
+<body>
+    <header>
+        <!-- haut de la page dire comment nous contacté et dire qui y a participé -->
+        <form action="/Recherche" method="POST" class="barra_de_recherche">
+            <label for="Artistesearch">Recherche un groupe de music :</label>
+            <input type="search" id="gsearch" name="Artistesearch" placeholder="exemple :'QUEEN' ">
+            <input type="submit" name="bouton_envoie" value="Submit">
+          </form>
+    </header>
+    <section id="PageContent">
+        {{range .}}
+        <main id="Leftcol">
+            <ul id="photo">
+                <li>
+                   <a href="#info{{.ID}}"> <img src="{{.Image}}" alt="jsp sa fais quoi"></a>
+                </li>
+            </ul>
+        </main>
+        <aside id="Rightcol">
+            <p id="info{{.ID}}">
+                les membres du groupe <strong>{{.Name}}</strong> sont 
+                <break>
+                    <strong>{{.Members}}</strong>
+                </break>
+                leurs date date de création et le <strong></strong>{{.CreationDate}}</strong> et la sortie de leur premier albul date de <strong>{{.FirstAlbum}}</strong>
+            </p>
+        </aside>
+        {{end}}
+    </section>
+    <footer>
+        <!-- bah de la page dire comment nous contacté et dire qui y a participé -->
+    </footer>
+</body>
+</html>
+{{end}}
